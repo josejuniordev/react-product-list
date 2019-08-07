@@ -1,0 +1,61 @@
+.#{$prefix}button {
+  $default-color: #dddddd;
+  $default-hover-color: darken($default-color, 10);
+
+  background: $default-color;
+  color: $gray-dark;
+  border: 1px solid $default-color;
+  display: flex;
+  padding: 0 20px;
+  height: 40px;
+  transition: all .2s;
+  cursor: pointer;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: $default-hover-color;
+    border-color: $default-hover-color;
+  }
+
+  &.--is-primary {
+    background: $gray-dark;
+    color: $white;
+    border-color: $gray-dark;
+
+    &:hover {
+      background: $gray-dark2;
+      border-color: $gray-dark2;
+    }
+  }
+
+  &.--is-secondary {
+    background: $white;
+    color: $gray-dark;
+    border-color: $gray-dark2;
+
+    &:hover {
+      background: $gray-dark2;
+      color: $white;
+    }
+  }
+
+  &.--is-highlighted {
+    font-weight: bold;
+  }
+
+  &.--is-highlighted {
+    width: 100%;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  .icon {
+    font-size: 16px;
+    margin-right: 5px;
+    color: currentColor;
+  }
+}
