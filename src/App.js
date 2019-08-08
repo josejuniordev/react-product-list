@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { Suspense, lazy } from 'react';
 import {fetchProducts} from "./ducks/products";
 import {fetchDepartments} from "./ducks/departments";
-import Menu from './components/navigation/Navigation';
+import Navigation from './components/navigation/Navigation';
+import Button from "./components/button/Button";
 
 const ProductsListPage =  lazy(() => import("./pages/ProductsListPage"));
 const ProductDetailsPage =  lazy(() => import("./pages/ProductDetailsPage"));
@@ -18,22 +19,31 @@ function App(
 ) {
   const selectedLink = window.location.pathname.replace('/', '') || 'home';
   const [initialized, setInitialized] = useState(false);
+  const [isNavigationOpen, setIsNavigationOpenTo] = useState(false);
 
   useEffect(() => {
     if (!initialized) {
       initialize();
     }
-
-    function initialize() {
-      callFetchProducts();
-      callFetchDepartments();
-      setInitialized(true);
-    }
-
   }, [initialized]);
+
+  const initialize = () => {
+    callFetchProducts();
+    callFetchDepartments();
+    setInitialized(true);
+  }
+
+  const openNavigation = () => {
+    setIsNavigationOpenTo(true);
+  };
+
+  const closeNavigation = () => {
+    setIsNavigationOpenTo(false);
+  };
 
   return (
     <BrowserRouter basename="">
+      <Button label='abrir menu' onClick={openNavigation} />
       <Link to={`${process.env.PUBLIC_URL}/product-detail`}><span>Produto específico</span></Link>
       <Suspense
         fallback={<p>carregando...</p>}
@@ -43,7 +53,7 @@ function App(
           <Route exact path={`${process.env.PUBLIC_URL}/product-detail`} component={() => <ProductDetailsPage appInitialized={initialized} />} />
         </Switch>
       </Suspense>
-      <Menu />
+      <Navigation onClose={closeNavigation} open={isNavigationOpen} />
     </BrowserRouter>
   );
 }

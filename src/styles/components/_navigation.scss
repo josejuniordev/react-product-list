@@ -8,6 +8,13 @@
   border-right: 1px solid $gray-dark2;
   width: 80%;
   max-width: 350px;
+  transition: all .2s;
+
+  transform: translateX(-101%);
+
+  @include modifier(is-open) {
+    transform: translateX(0);
+  }
 
   @include element(header) {
     background: $gray-dark;
@@ -51,6 +58,16 @@
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+  }
+
+  @include element(backdrop) {
+    display: none;
+    opacity: 0;
+
+    @include modifier(is-open) {
+      display: block;
+      opacity: 1;
+    }
   }
 }
 
