@@ -9,6 +9,8 @@ function ProductsListPage(
     departments,
   }
 ) {
+  console.log('productes', products)
+  console.log('departaments', departments)
 
   const showLoader = products.isLoading || departments.isLoading;
   return (
@@ -31,10 +33,10 @@ function ProductsListPage(
 }
 
 export default connect(
-  ({ products, departaments }) => {
+  ({ products, departments }) => {
     return {
       products,
-      departaments,
+      departments,
     }
   }
 )(ProductsListPage);
