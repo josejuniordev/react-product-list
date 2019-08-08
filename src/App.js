@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Suspense, lazy } from 'react';
 import {fetchProducts} from "./ducks/products";
 import {fetchDepartments} from "./ducks/departments";
+import Menu from './components/navigation/Navigation';
 
 const ProductsListPage =  lazy(() => import("./pages/ProductsListPage"));
 const ProductDetailsPage =  lazy(() => import("./pages/ProductDetailsPage"));
@@ -42,6 +43,7 @@ function App(
           <Route exact path={`${process.env.PUBLIC_URL}/product-detail`} component={() => <ProductDetailsPage appInitialized={initialized} />} />
         </Switch>
       </Suspense>
+      <Menu />
     </BrowserRouter>
   );
 }
