@@ -3,6 +3,8 @@
   $default-hover-color: darken($default-color, 10);
 
   background: $default-color;
+  font-size: 1rem;
+  font-weight: normal;
   color: $gray-dark;
   border: 1px solid $default-color;
   display: flex;
@@ -13,6 +15,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 
   &:hover {
     background: $default-hover-color;
@@ -45,7 +48,7 @@
     font-weight: bold;
   }
 
-  &.--is-highlighted {
+  &.--is-block {
     width: 100%;
   }
 
@@ -54,7 +57,7 @@
   }
 
   .icon {
-    font-size: 16px;
+    font-size: 20px;
     margin-right: 5px;
     color: currentColor;
   }
