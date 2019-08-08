@@ -1,0 +1,70 @@
+{
+	"Produtos": [{
+		"IdProduto": 1,
+		"Nome": "Smartphone Samsung Galaxy J1 Mini Duos Preto com Dual Chip, Tela 4.0', 3G, Câmera de 5MP, Android 5.1 e Processador Quad Core de 1.2 GHz",
+		"Avaliacao": 4,
+		"Imagem": "./images/j1Mini.jpg",
+		"Preco": {
+			"Por": 399.00,
+			"Parcelamento": 5,
+			"PorParcela": 79.80
+		}
+	}, {
+		"IdProduto": 2,
+		"Nome": "Smartphone Samsung Galaxy J1 Mini Duos Dourado com Dual Chip, Tela 4.0, 3G, Câmera de 5MP, Android 5.1 e Processador Quad Core de 1.2 GHz",
+		"Avaliacao": 3,
+		"Imagem": "./images/j1Mini2.jpg",
+		"Preco": {
+			"Por": 379.00,
+			"Parcelamento": 5,
+			"PorParcela": 75.80
+		}
+	}, {
+		"IdProduto": 3,
+		"Nome": "Smartphone LG K10 Novo M250DS Preto com 32GB, Dual Chip, Tela de 5.3' HD, 4G, Android 7.0, Câmera 13MP e Processador Octa Core de 1.5 GHz",
+		"Avaliacao": 5,
+		"Imagem": "./images/LgK10.jpg",
+		"Preco": {
+			"De": 823.90,
+			"Por": 699.00,
+			"Parcelamento": 10,
+			"PorParcela": 69.90
+		}
+	}, {
+		"IdProduto": 4,
+		"Nome": "Smartphone Samsung Galaxy A5 2016 Duos A510M/DS Rose com Dual Chip, Tela 5.2, Câmera 13MP, Android 5.1 e Processador Octa Core 1.6GHz",
+		"Avaliacao": 2,
+		"Imagem": "./images/A5.jpg",
+		"Preco": {
+			"De": 2399.90,
+			"Por": 2032.90,
+			"Parcelamento": 10,
+			"PorParcela": 203.29
+		}
+	}, {
+		"IdProduto": 5,
+		"Nome": "Smartphone Samsung Galaxy J8 4GB RAM, Câmera Traseira Dupla, Câmera Frontal 16MP, Dual Chip, Android 8.0, 64GB, Preto, Tela Infinita de 6,0",
+		"Avaliacao": 4,
+		"Imagem": "./images/J8.jpg",
+		"Preco": {
+			"De": 1899.00,
+			"Por": 1299.00,
+			"Parcelamento": 10,
+			"PorParcela": 108.25
+		}
+	}, {
+		"IdProduto": 6,
+		"Nome": "Smartphone Samsung Galaxy J8 4GB RAM, Câmera Traseira Dupla, Câmera Frontal 16MP, Dual Chip, Android 8.0, 64GB, Prata, Tela Infinita de 6,0",
+		"Avaliacao": 3,
+		"Imagem": "./images/J8-2.jpg",
+		"Preco": {
+			"De": 1899.00,
+			"Por": 1299.00,
+			"Parcelamento": 10,
+			"PorParcela": 108.25
+		}
+	}],
+	"Valido": true,
+	"Mensagens": [],
+	"Protocolo": "2b6ed750-5b2c-4c1d-8251-bc665fc863ab"
+}
