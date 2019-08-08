@@ -11,6 +11,46 @@
 
   @include element(header) {
     background: $gray-dark;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    color: $white;
+    padding: 15px 15px 0 40px;
+    position: relative;
+  }
+
+  @include element(close-link) {
+    color: $white;
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    display: block;
+    padding: 5px;
+  }
+
+  @include element(title) {
+    color: inherit;
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  @include element(action-link) {
+    color: $light-gray;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: lowercase;
+
+    &:hover {
+      color: lighten($light-gray, 10);
+    }
+  }
+
+  @include element(header-navigation) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
   }
 }
 

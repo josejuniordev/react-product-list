@@ -10,7 +10,6 @@
   display: flex;
   padding: 0 20px;
   height: 40px;
-  transition: all .2s;
   cursor: pointer;
   text-align: center;
   align-items: center;
@@ -22,7 +21,7 @@
     border-color: $default-hover-color;
   }
 
-  &.--is-primary {
+  @include modifier(is-primary) {
     background: $gray-dark;
     color: $white;
     border-color: $gray-dark;
@@ -33,32 +32,42 @@
     }
   }
 
-  &.--is-secondary {
+  @include modifier(is-secondary) {
     background: $white;
     color: $gray-dark;
     border-color: $gray-dark2;
 
     &:hover {
       background: $gray-dark2;
+      border-color: $gray-dark2;
       color: $white;
     }
   }
 
-  &.--is-highlighted {
+  @include modifier(is-highlighted) {
     font-weight: bold;
   }
 
-  &.--is-block {
+  @include modifier(is-block) {
     width: 100%;
+  }
+
+  @include modifier(is-small) {
+    padding: 0 5px;
+    font-size: .8rem;
+
+    & .#{$prefix}button__icon {
+      font-size: 14px;
+    }
+  }
+
+  @include element(icon) {
+    font-size: 20px;
+    margin-right: 5px;
+    color: currentColor;
   }
 
   &:focus {
     outline: none;
-  }
-
-  .icon {
-    font-size: 20px;
-    margin-right: 5px;
-    color: currentColor;
   }
 }
