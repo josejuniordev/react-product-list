@@ -1,5 +1,7 @@
 import httpRequest from './HttpRequest';
 import {fetchDepartmentsUrl} from './Defaults';
+import {delay} from "../utility/Utils";
+import Departamentos from '../mock/Departamentos';
 
 export class DepartamentsAPI {
   constructor() {
@@ -9,6 +11,11 @@ export class DepartamentsAPI {
   }
 
   async getDepartaments() {
-    return await this._httpRequest.get(this._url);
+    return new Promise(async resolve => {
+      await delay(1000);
+      resolve(Departamentos);
+    });
+
+    // return await this._httpRequest.get(this._url);
   }
 }

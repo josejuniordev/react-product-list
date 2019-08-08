@@ -1,5 +1,5 @@
 import {all, takeLatest, put, call} from 'redux-saga/effects';
-import {FETCH_DEPARTMENTS, fetchDepartmentsFailed} from "../ducks/departments";
+import {FETCH_DEPARTMENTS, fetchDepartmentsFailed, fetchDepartmentsSuccess} from "../ducks/departments";
 import {DepartamentsAPI} from "../integrations/DepartamentsAPI";
 
 const departamentsApi = new DepartamentsAPI();
@@ -7,9 +7,10 @@ const departamentsApi = new DepartamentsAPI();
 function* fetchDepartamentsSaga() {
   try {
     const departaments = yield call(departamentsApi.getDepartaments);
-    console.log('departamentos', departaments)
+    yield put(fetchDepartmentsSuccess(departaments.Departamentos));
+
   } catch (e) {
-    console.log(e)
+    console.error(e);
     put(fetchDepartmentsFailed());
   }
 }
