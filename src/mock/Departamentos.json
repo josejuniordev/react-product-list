@@ -8,7 +8,7 @@
 		"IdDepartamento": 13,
 		"Nome": "Eletrodomésticos",
 		"FlagMenu": true,
-		"Ordem": 2,
+		"Ordem": 2
 	}, {
 		"IdDepartamento": 29,
 		"Nome": "Câmeras, Filmadoras e Drones ",

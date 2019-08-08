@@ -5,7 +5,7 @@
 	"Nome": "Smartphone Samsung Galaxy J8 4GB RAM, Câmera Traseira Dupla, Câmera Frontal 16MP, Dual Chip, Android 8.0, 64GB, Prata, Tela Infinita de 6,0",
 	"Avaliacao": {
 		"Estrelas": 4,
-		"Quantidade": 209,
+		"Quantidade": 209
 	},
 	"Imagens": [
 		"./images/Produto/k10_1.jpg",
@@ -19,7 +19,7 @@
 		"Por": 1299.00,
 		"Parcelamento": 10,
 		"PorParcela": 108.25,
-		"DescontoPagamento": {
+		"DescontoPagamento":
 			[{
 					"FlagAtivo": true,
 					"Ico": "CodigoBarra",
@@ -39,7 +39,6 @@
 				}
 
 			]
-		}
 	},
 	"Valido": true,
 	"Mensagens": [],
