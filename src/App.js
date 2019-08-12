@@ -7,6 +7,7 @@ import { fetchProducts } from './ducks/products';
 import { fetchDepartments } from './ducks/departments';
 import Navigation from './components/navigation/Navigation';
 import Button from './components/button/Button';
+import Navbar from './components/navbar/Navbar';
 
 const ProductsListPage = lazy(() => import('./pages/ProductsListPage'));
 const ProductDetailsPage = lazy(() => import('./pages/ProductDetailsPage'));
@@ -43,7 +44,7 @@ function App(
 
   return (
     <BrowserRouter basename="">
-      <Button label='abrir menu' onClick={ openNavigation }/>
+      <Navbar onToggleButtonClick={openNavigation} />
       <Link to={ `${ process.env.PUBLIC_URL }/product-detail` }><span>Produto específico</span></Link>
       <Suspense
         fallback={ <p>carregando...</p> }
