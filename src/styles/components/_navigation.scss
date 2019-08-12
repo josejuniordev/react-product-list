@@ -1,0 +1,128 @@
+.#{$prefix}menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  border-right: 1px solid $gray-dark2;
+  width: 80%;
+  max-width: 350px;
+  transition: all .2s;
+
+  transform: translateX(-101%);
+
+  @include modifier(is-open) {
+    transform: translateX(0);
+  }
+
+  @include element(header) {
+    background: $gray-dark;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    color: $white;
+    padding: 15px 15px 0 40px;
+    position: relative;
+  }
+
+  @include element(close-link) {
+    color: $white;
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    display: block;
+    padding: 5px;
+  }
+
+  @include element(title) {
+    color: inherit;
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  @include element(action-link) {
+    color: $light-gray;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: lowercase;
+
+    &:hover {
+      color: lighten($light-gray, 10);
+    }
+  }
+
+  @include element(header-navigation) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  @include element(backdrop) {
+    display: none;
+    opacity: 0;
+
+    @include modifier(is-open) {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  @include element(main-navigation) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+  }
+
+  @include element(main-navigation-item) {
+    text-transform: uppercase;
+  }
+
+  @include element(main-navigation-link) {
+    display: flex;
+    color: $light-gray;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      background: lighten($light-gray, 35);
+    }
+  }
+
+  @include element(main-navigation-label) {
+    padding: 15px;
+    flex: 2;
+    border-bottom: 1px solid lighten($light-gray, 35);
+  }
+
+  @include element(main-navigation-icon) {
+    padding: 15px;
+  }
+
+  @include element(main-navigation-title) {
+    background: lighten($light-gray, 30);
+    color: $light-gray;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 5px 15px;
+    margin: 0;
+  }
+
+  @include element(main-navigation-sticky-item) {
+    background: $white;
+    position: sticky;
+    bottom: 0;
+    padding: 5px;
+  }
+}
+
+.#{$prefix}menu__main-navigation-icon ~ .#{$prefix}menu__main-navigation-label {
+  padding-left: 0;
+  margin-right: 15px;
+}
+

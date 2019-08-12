@@ -1,0 +1,11 @@
+@mixin element($name, $complement: '') {
+  @at-root #{&}__#{$name} #{$complement} {
+    @content;
+  }
+}
+
+@mixin modifier($name) {
+  @at-root #{&}--#{$name} {
+    @content;
+  }
+}

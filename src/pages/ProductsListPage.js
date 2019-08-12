@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
 import { connect } from 'react-redux';
+import GlobalLoader from '../components/loader/global-loader';
+import { BrowserRouter } from 'react-router-dom';
 
 function ProductsListPage(
   {
@@ -7,6 +9,10 @@ function ProductsListPage(
     departments,
   }
 ) {
+  console.log('productes', products)
+  console.log('departaments', departments)
+
+  const showLoader = products.isLoading || departments.isLoading;
   return (
     <Fragment>
       <h1>titulo 1 <a href="#" className='vv-button'>testandooo</a></h1>
@@ -21,15 +27,16 @@ function ProductsListPage(
       <p>Produtos</p>
       <h6>titulo 1</h6>
       <p>Produtos</p>
+      <GlobalLoader show={showLoader} />
     </Fragment>
   )
 }
 
 export default connect(
-  ({ tasks, tags }) => {
+  ({ products, departments }) => {
     return {
-      tasks,
-      tags
+      products,
+      departments,
     }
   }
 )(ProductsListPage);
