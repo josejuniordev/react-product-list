@@ -65,6 +65,10 @@
     font-size: 20px;
     margin-right: 5px;
     color: currentColor;
+
+    @include modifier(no-margin) {
+      margin: 0;
+    }
   }
 
   &:focus {

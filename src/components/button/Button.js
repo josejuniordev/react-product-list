@@ -39,12 +39,17 @@ function Button(
     [`${buttonClassName}--is-large`]: size === buttonSizes.large,
   });
 
+  const iconClassNames = classnames({
+    [`${buttonClassName}__icon`]: true,
+    [`${buttonClassName}__icon--no-margin`]: !label ? true : false,
+  });
+
   return (
     <button
       onClick={onClick}
       className={classes}
     >
-      <span className={`${buttonClassName}__icon`}>{icon}</span>
+      <span className={iconClassNames}>{icon}</span>
       {label}
     </button>
   )

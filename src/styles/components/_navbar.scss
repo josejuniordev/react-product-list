@@ -1,3 +1,16 @@
 .#{$prefix}navbar {
   background: $gray-dark;
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
+
+  @include element(side-actions) {
+    display: flex;
+    justify-content: flex-end;
+    flex: 2;
+  }
 }

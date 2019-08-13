@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import Button from "../button/Button";
 import {appPrefix} from "../../constants/settings";
 import HamburgerIcon from '../icons/HamburgerIcon';
+import CompareIcon from '../icons/CompareIcon';
 
 const navbarClassName = `${appPrefix}navbar`;
 function Navbar(
@@ -21,6 +22,11 @@ function Navbar(
     <Fragment>
       <header className={navbarClassName}>
         <Button onClick={onToggleButtonClickHandler} type='primary' icon={<HamburgerIcon />} />
+        <div className={`${navbarClassName}__side-actions`}>
+          <Button onClick={onToggleButtonClickHandler} type='primary' icon={<CompareIcon />} />
+          <Button onClick={onToggleButtonClickHandler} type='primary' icon={<CompareIcon />} />
+          <Button onClick={onToggleButtonClickHandler} type='primary' icon={<CompareIcon />} />
+        </div>
       </header>
     </Fragment>
   )
