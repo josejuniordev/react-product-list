@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.scss';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Suspense, lazy } from 'react';
 import { fetchProducts } from './ducks/products';
@@ -8,6 +8,7 @@ import { fetchDepartments } from './ducks/departments';
 import Navigation from './components/navigation/Navigation';
 import Button from './components/button/Button';
 import Navbar from './components/navbar/Navbar';
+
 
 const ProductsListPage = lazy(() => import('./pages/ProductsListPage'));
 const ProductDetailsPage = lazy(() => import('./pages/ProductDetailsPage'));
@@ -21,6 +22,7 @@ function App(
   const selectedLink = window.location.pathname.replace('/', '') || 'home';
   const [initialized, setInitialized] = useState(false);
   const [isNavigationOpen, setIsNavigationOpenTo] = useState(false);
+  const [history, setHistory] = useState({});
 
   useEffect(() => {
     if (!initialized) {
@@ -32,7 +34,7 @@ function App(
     callFetchProducts();
     callFetchDepartments();
     setInitialized(true);
-  }
+  };
 
   const openNavigation = () => {
     setIsNavigationOpenTo(true);
@@ -42,11 +44,17 @@ function App(
     setIsNavigationOpenTo(false);
   };
 
+  const backButtonClickHandler = () => {
+    if (Object.keys(history).length) {
+      history.goBack();
+    }
+  };
+
   return (
     <BrowserRouter basename="">
       <Navbar onToggleButtonClick={openNavigation} actionButtons={
         [
-          <Button type='link' icon={<span>&#8249;</span>} label='Voltar' highlight />
+          <Button onClick={backButtonClickHandler} type='link' icon={<span>&#8249;</span>} label='Voltar' highlight />
         ]
       } />
       <Link to={ `${ process.env.PUBLIC_URL }/product-detail` }><span>Produto específico</span></Link>
@@ -55,9 +63,9 @@ function App(
       >
         <Switch>
           <Route exact path={ `${ process.env.PUBLIC_URL }/` }
-                 component={ () => <ProductsListPage appInitialized={ initialized }/> }/>
+                 component={ () => <ProductsListPage historyHandler={setHistory} appInitialized={ initialized }/> }/>
           <Route exact path={ `${ process.env.PUBLIC_URL }/product-detail` }
-                 component={ () => <ProductDetailsPage appInitialized={ initialized }/> }/>
+                 component={ () => <ProductDetailsPage historyHandler={setHistory} appInitialized={ initialized }/> }/>
         </Switch>
       </Suspense>
       <Navigation onClose={ closeNavigation } open={ isNavigationOpen }/>
@@ -76,6 +84,8 @@ const connectedApp = connect(false,
       }
     }
   }
-)(App);
+)(
+  App
+);
 
 export default connectedApp;

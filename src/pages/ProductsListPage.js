@@ -1,16 +1,20 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { connect } from 'react-redux';
 import GlobalLoader from '../components/loader/global-loader';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, withRouter } from 'react-router-dom';
 
 function ProductsListPage(
   {
     products,
     departments,
+    historyHandler,
+    history
   }
 ) {
-  console.log('productes', products)
-  console.log('departaments', departments)
+
+  useEffect(() => {
+    historyHandler(history);
+  }, []);
 
   const showLoader = products.isLoading || departments.isLoading;
   return (
@@ -39,4 +43,6 @@ export default connect(
       departments,
     }
   }
-)(ProductsListPage);
+)(
+  withRouter(ProductsListPage)
+);
