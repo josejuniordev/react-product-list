@@ -7,6 +7,7 @@ const buttonTypes = {
   default: 'default',
   primary: 'primary',
   secondary: 'secondary',
+  link: 'link'
 };
 
 const buttonSizes = {
@@ -30,8 +31,9 @@ function Button(
 ) {
   const classes = classnames({
     [`${buttonClassName}`]: true,
-    [`${buttonClassName}--is-primary`]: type === 'primary',
-    [`${buttonClassName}--is-secondary`]: type === 'secondary',
+    [`${buttonClassName}--is-primary`]: type === buttonTypes.primary,
+    [`${buttonClassName}--is-secondary`]: type === buttonTypes.secondary,
+    [`${buttonClassName}--is-link`]: type === buttonTypes.link,
     [`${buttonClassName}--is-highlighted`]: highlight !== false,
     [`${buttonClassName}--is-block`]: block !== false,
     [`${buttonClassName}--is-small`]: size === buttonSizes.small,
@@ -39,12 +41,17 @@ function Button(
     [`${buttonClassName}--is-large`]: size === buttonSizes.large,
   });
 
+  const iconClassNames = classnames({
+    [`${buttonClassName}__icon`]: true,
+    [`${buttonClassName}__icon--no-margin`]: !label ? true : false,
+  });
+
   return (
     <button
       onClick={onClick}
       className={classes}
     >
-      <span className={`${buttonClassName}__icon`}>{icon}</span>
+      <span className={iconClassNames}>{icon}</span>
       {label}
     </button>
   )

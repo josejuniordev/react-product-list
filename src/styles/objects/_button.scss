@@ -12,13 +12,23 @@
   height: 40px;
   cursor: pointer;
   text-align: center;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   text-decoration: none;
 
   &:hover {
     background: $default-hover-color;
     border-color: $default-hover-color;
+  }
+
+  @include modifier(is-link) {
+    background: transparent;
+    color: $gray-dark2;
+    border: none;
+
+    &:hover {
+      background: $default-color;
+    }
   }
 
   @include modifier(is-primary) {
@@ -65,6 +75,10 @@
     font-size: 20px;
     margin-right: 5px;
     color: currentColor;
+
+    @include modifier(no-margin) {
+      margin: 0;
+    }
   }
 
   &:focus {

@@ -1,0 +1,29 @@
+.#{$prefix}navbar {
+  $default-height: 50px;
+
+  padding-top: $default-height;
+
+  @include element(body) {
+    background: $gray-dark;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    height: $default-height;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
+  }
+
+  @include element(side-actions) {
+    display: flex;
+    justify-content: flex-end;
+    flex: 2;
+  }
+
+  @include element(action-buttons) {
+    background: $white;
+    border-bottom: 1px solid $light-gray;
+    padding: 5px 0;
+  }
+}
