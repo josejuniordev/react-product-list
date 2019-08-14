@@ -44,7 +44,11 @@ function App(
 
   return (
     <BrowserRouter basename="">
-      <Navbar onToggleButtonClick={openNavigation} />
+      <Navbar onToggleButtonClick={openNavigation} actionButtons={
+        [
+          <Button type='link' icon={<span>&#8249;</span>} label='Voltar' highlight />
+        ]
+      } />
       <Link to={ `${ process.env.PUBLIC_URL }/product-detail` }><span>Produto específico</span></Link>
       <Suspense
         fallback={ <p>carregando...</p> }

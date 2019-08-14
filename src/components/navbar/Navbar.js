@@ -10,6 +10,7 @@ const navbarClassName = `${appPrefix}navbar`;
 function Navbar(
   {
     onToggleButtonClick = () => {},
+    actionButtons = []
   }
 ) {
 
@@ -21,20 +22,30 @@ function Navbar(
   return (
     <Fragment>
       <header className={navbarClassName}>
-        <Button onClick={onToggleButtonClickHandler} type='primary' icon={<HamburgerIcon />} />
-        <div className={`${navbarClassName}__side-actions`}>
-          <Button onClick={onToggleButtonClickHandler} type='primary' icon={<CompareIcon />} />
-          <Button onClick={onToggleButtonClickHandler} type='primary' icon={<CompareIcon />} />
-          <Button onClick={onToggleButtonClickHandler} type='primary' icon={<CompareIcon />} />
+        <div className={`${navbarClassName}__body`}>
+          <Button onClick={onToggleButtonClickHandler} type='primary' icon={<HamburgerIcon />} />
+          <div className={`${navbarClassName}__side-actions`}>
+            <Button onClick={onToggleButtonClickHandler} type='primary' icon={<CompareIcon />} />
+            <Button onClick={onToggleButtonClickHandler} type='primary' icon={<CompareIcon />} />
+            <Button onClick={onToggleButtonClickHandler} type='primary' icon={<CompareIcon />} />
+          </div>
         </div>
       </header>
+      {
+        actionButtons.length
+          && (
+            <div className={`${navbarClassName}__action-buttons`}>
+              {actionButtons}
+            </div>
+          )
+      }
     </Fragment>
   )
 }
 
 Navbar.propTypes = {
-  open: PropTypes.bool,
   onToggleButtonClick: PropTypes.func,
+  actionButtons: PropTypes.arrayOf(PropTypes.element),
 };
 
 export default memo(Navbar);

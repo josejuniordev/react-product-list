@@ -7,6 +7,7 @@ const buttonTypes = {
   default: 'default',
   primary: 'primary',
   secondary: 'secondary',
+  link: 'link'
 };
 
 const buttonSizes = {
@@ -30,8 +31,9 @@ function Button(
 ) {
   const classes = classnames({
     [`${buttonClassName}`]: true,
-    [`${buttonClassName}--is-primary`]: type === 'primary',
-    [`${buttonClassName}--is-secondary`]: type === 'secondary',
+    [`${buttonClassName}--is-primary`]: type === buttonTypes.primary,
+    [`${buttonClassName}--is-secondary`]: type === buttonTypes.secondary,
+    [`${buttonClassName}--is-link`]: type === buttonTypes.link,
     [`${buttonClassName}--is-highlighted`]: highlight !== false,
     [`${buttonClassName}--is-block`]: block !== false,
     [`${buttonClassName}--is-small`]: size === buttonSizes.small,
