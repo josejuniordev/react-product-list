@@ -23,3 +23,7 @@ export const clearCharacters = (e) => {
 
   e.target.value = value;
 };
+
+export const currencyFormat = function (value, locale = 'pt-BR', currency = 'BRL') {
+  return new Intl.NumberFormat(locale, { style: 'currency', currency }).format(value);
+};

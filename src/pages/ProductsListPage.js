@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { connect } from 'react-redux';
 import GlobalLoader from '../components/loader/global-loader';
 import { BrowserRouter, withRouter } from 'react-router-dom';
+import ProductsList from '../components/products/ProductsList';
 
 function ProductsListPage(
   {
@@ -19,8 +20,7 @@ function ProductsListPage(
   const showLoader = products.isLoading || departments.isLoading;
   return (
     <Fragment>
-
-
+      <ProductsList products={products.data} />
       <GlobalLoader show={showLoader} />
     </Fragment>
   )

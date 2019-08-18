@@ -1,0 +1,22 @@
+.#{$prefix}product-card {
+
+  position: relative;
+
+  @include element(image) {
+    display: block;
+    max-width: 100%;
+    margin: auto;
+  }
+
+  @include element(title) {
+    font-size: 1rem;
+  }
+
+  @include element(wish-list-icon) {
+    color: #d00;
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
