@@ -26,19 +26,21 @@ function ProductCard(
         </figure>
         <header className={`${cardPrefix}__title-container`}>
           <h3 className={`${cardPrefix}__title`}>
-            <LinesEllipsis
-              text={product.name}
-              maxLine='2'
-              ellipsis='...'
-              trimRight
-              component='span'
-              basedOn='words'
-            />
+            <Link to={ `${ process.env.PUBLIC_URL }/product-detail` }>
+              <LinesEllipsis
+                text={product.name}
+                maxLine='2'
+                ellipsis='...'
+                trimRight
+                component='span'
+                basedOn='words'
+              />
+            </Link>
           </h3>
         </header>
-        <span className={`${cardPrefix}__wish-list-icon`}>
+        <a href='#' className={`${cardPrefix}__wish-list-icon`}>
           <HeartIcon/>
-        </span>
+        </a>
         <p className={`${cardPrefix}__rating`}>
           <Rating
             emptySymbol={<StarIcon style={{width: '20px', height: '20px', color: '#ccc'}} />}

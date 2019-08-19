@@ -8,6 +8,7 @@ import { fetchDepartments } from './ducks/departments';
 import Navigation from './components/navigation/Navigation';
 import Button from './components/button/Button';
 import Navbar from './components/navbar/Navbar';
+import { appPrefix } from './constants/settings';
 
 
 const ProductsListPage = lazy(() => import('./pages/ProductsListPage'));
@@ -51,25 +52,28 @@ function App(
   };
 
   return (
-    <BrowserRouter basename="">
-      <Navbar onToggleButtonClick={openNavigation} actionButtons={
-        [
-          <Button onClick={backButtonClickHandler} type='link' icon={<span>&#8249;</span>} label='Voltar' highlight />
-        ]
-      } />
-      <Link to={ `${ process.env.PUBLIC_URL }/product-detail` }><span>Produto específico</span></Link>
-      <Suspense
-        fallback={ <p>carregando...</p> }
-      >
-        <Switch>
-          <Route exact path={ `${ process.env.PUBLIC_URL }/` }
-                 component={ () => <ProductsListPage historyHandler={setHistory} appInitialized={ initialized }/> }/>
-          <Route exact path={ `${ process.env.PUBLIC_URL }/product-detail` }
-                 component={ () => <ProductDetailsPage historyHandler={setHistory} appInitialized={ initialized }/> }/>
-        </Switch>
-      </Suspense>
-      <Navigation onClose={ closeNavigation } open={ isNavigationOpen }/>
-    </BrowserRouter>
+    <main>
+      <BrowserRouter basename="">
+        <Navbar onToggleButtonClick={openNavigation} actionButtons={
+          [
+            <Button onClick={backButtonClickHandler} type='link' icon={<span>&#8249;</span>} label='Voltar' highlight />
+          ]
+        } />
+        <section className={`${appPrefix}content`}>
+          <Suspense
+            fallback={ <p>carregando...</p> }
+          >
+            <Switch>
+              <Route exact path={ `${ process.env.PUBLIC_URL }/` }
+                     component={ () => <ProductsListPage historyHandler={setHistory} appInitialized={ initialized }/> }/>
+              <Route exact path={ `${ process.env.PUBLIC_URL }/product-detail` }
+                     component={ () => <ProductDetailsPage historyHandler={setHistory} appInitialized={ initialized }/> }/>
+            </Switch>
+          </Suspense>
+        </section>
+        <Navigation onClose={ closeNavigation } open={ isNavigationOpen }/>
+      </BrowserRouter>
+    </main>
   );
 }
 

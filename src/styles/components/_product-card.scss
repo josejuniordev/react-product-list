@@ -2,6 +2,17 @@
 
   position: relative;
 
+  a:not([class*=wish-list-icon]) {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+
+    &:hover {
+      opacity: .5;
+    }
+
+  }
+
   @include element(image) {
     display: block;
     max-width: 100%;
@@ -18,5 +29,21 @@
     position: absolute;
     top: 0;
     right: 0;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+  }
+
+  @include element(price-container) {
+    text-align: right;
+  }
+
+  @include element(price-value) {
+    display: block;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
   }
 }
