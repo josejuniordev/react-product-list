@@ -66,7 +66,7 @@ function App(
             <Switch>
               <Route exact path={ `${ process.env.PUBLIC_URL }/` }
                      component={ () => <ProductsListPage historyHandler={setHistory} appInitialized={ initialized }/> }/>
-              <Route exact path={ `${ process.env.PUBLIC_URL }/product-detail` }
+              <Route exact path={ `${ process.env.PUBLIC_URL }/product/:id` }
                      component={ () => <ProductDetailsPage historyHandler={setHistory} appInitialized={ initialized }/> }/>
             </Switch>
           </Suspense>

@@ -1,5 +1,10 @@
 import {all, takeLatest, call, put} from 'redux-saga/effects';
-import {FETCH_PRODUCTS} from "../ducks/products";
+import {
+  FETCH_PRODUCTS,
+  FETCH_SINGLE_PRODUCT,
+  fetchSingleProductFailed,
+  fetchSingleProductSuccess
+} from '../ducks/products';
 import { fetchProductsFailed, fetchProductsSuccess } from '../ducks/products';
 import { ProductsAPI } from '../integrations/ProductsAPI';
 import Product, { priceSignature } from '../classes/Product';
@@ -33,12 +38,28 @@ function* fetchProductsSaga() {
   }
 }
 
+function* fetchSingleProductSaga({id}) {
+  try {
+    const product = yield call(productsApi.getProductById, id);
+    yield put(fetchSingleProductSuccess(product));
+
+  } catch (e) {
+    console.error(e);
+    put(fetchSingleProductFailed());
+  }
+}
+
 function* watchFetchProducts() {
   yield takeLatest(FETCH_PRODUCTS, fetchProductsSaga);
+}
+
+function* watchFetchSingleProduct() {
+  yield takeLatest(FETCH_SINGLE_PRODUCT, fetchSingleProductSaga);
 }
 
 export default function* () {
   yield all([
     watchFetchProducts(),
+    watchFetchSingleProduct(),
   ]);
 }

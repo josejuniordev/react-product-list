@@ -16,7 +16,7 @@ const initialState = {
 
 // REDUCER
 function products(state = initialState, action) {
-  const {type, products} = action;
+  const {type, products, product} = action;
   switch (type) {
     case FETCH_PRODUCTS:
       return {
@@ -62,8 +62,8 @@ export const fetchProducts = () => ({type: FETCH_PRODUCTS});
 export const fetchProductsSuccess = products => ({type: FETCH_PRODUCTS_SUCCESS, products});
 export const fetchProductsFailed = () => ({type: FETCH_PRODUCTS_FAILED});
 
-export const fetchSingleProduct = () => ({type: FETCH_SINGLE_PRODUCT});
-export const fetchSingleProductSuccess = products => ({type: FETCH_SINGLE_PRODUCT_SUCCESS, products});
+export const fetchSingleProduct = (id) => ({type: FETCH_SINGLE_PRODUCT, id});
+export const fetchSingleProductSuccess = product => ({type: FETCH_SINGLE_PRODUCT_SUCCESS, product});
 export const fetchSingleProductFailed = () => ({type: FETCH_SINGLE_PRODUCT_FAILED});
 
 export default products;

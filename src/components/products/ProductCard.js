@@ -20,13 +20,13 @@ function ProductCard(
     <Fragment>
       <article className={`${cardPrefix}`}>
         <figure className={`${cardPrefix}__image-container`}>
-          <Link to={ `${ process.env.PUBLIC_URL }/product-detail` }>
+          <Link to={ `${ process.env.PUBLIC_URL }/product/${product.id}` }>
             <img className={`${cardPrefix}__image`} src={product.image} alt={product.name}/>
           </Link>
         </figure>
         <header className={`${cardPrefix}__title-container`}>
           <h3 className={`${cardPrefix}__title`}>
-            <Link to={ `${ process.env.PUBLIC_URL }/product-detail` }>
+            <Link to={ `${ process.env.PUBLIC_URL }/product/${product.id}` }>
               <LinesEllipsis
                 text={product.name}
                 maxLine='2'
