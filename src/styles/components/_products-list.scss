@@ -1,0 +1,26 @@
+.#{$prefix}product-list {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid $light-gray;
+  border-left: 1px solid $light-gray;
+
+  @include element(item) {
+    box-sizing: border-box;
+    border-right: 1px solid $light-gray;
+    border-bottom: 1px solid $light-gray;
+    max-width: 100%;
+    padding: 5vw;
+
+    @include on-large-phones() {
+      max-width: 50%;
+      padding: 5vw;
+    }
+
+    @include on-tablets() {
+      max-width: 33.33%;
+      padding: 2vw;
+    }
+  }
+}

@@ -13,6 +13,7 @@
     align-items: center;
     height: $default-height;
     box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
+    z-index: 9999;
   }
 
   @include element(side-actions) {

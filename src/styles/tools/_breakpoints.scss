@@ -1,0 +1,28 @@
+$small-phones-width: 320px;
+$medium-phones-width: 375px;
+$large-phones-width: 425px;
+$tablet-width: 768px;
+
+@mixin on-small-phones() {
+  @media screen and (max-width: $small-phones-width) {
+    @content;
+  }
+}
+
+@mixin on-medium-phones() {
+  @media screen and (min-width: $medium-phones-width) {
+    @content;
+  }
+}
+
+@mixin on-large-phones() {
+  @media screen and (min-width: $large-phones-width) {
+    @content;
+  }
+}
+
+@mixin on-tablets() {
+  @media screen and (min-width: $tablet-width) {
+    @content;
+  }
+}
