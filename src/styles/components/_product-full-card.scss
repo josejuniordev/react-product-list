@@ -1,0 +1,128 @@
+.#{$prefix}product-full-card {
+  padding: 0 15px 15px 15px;
+  position: relative;
+
+  a:not([class*=wish-list-icon]) {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+
+    &:hover {
+      opacity: .5;
+    }
+
+  }
+
+  @include element(information) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: .9rem;
+  }
+  
+  @include element(rating) {
+    display: flex;
+    align-items: center;
+  }
+
+  @include element(rating-label) {
+    font-weight: 500;
+    margin: 0 0 0 10px;
+  }
+
+  @include element(image-slider) {
+    margin-bottom: 35px;
+    position: relative;
+
+    @include on-tablets() {
+      width: 45%;
+    }
+  }
+
+  @include element(image-container) {
+    margin: 0;
+  }
+
+  @include element(image) {
+    display: block;
+    max-width: 100%;
+    margin: auto;
+  }
+
+  @include element(title) {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  @include element(wish-list-icon) {
+    color: #d00;
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+  }
+
+  @include element(price-container) {
+    text-align: left;
+  }
+
+  @include element(price-value) {
+    display: block;
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+
+  @include element(price-from) {
+    font-weight: 400;
+    font-size: .9rem;
+    margin-right: 10px;
+  }
+
+  @include element(price-installment) {
+    display: flex;
+  }
+
+  @include element(discount-item) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @include element(discount-icon) {
+    display: block;
+    max-height: 120px;
+  }
+
+  @include element(discount-description) {
+    flex: 2;
+    padding-left: 15px;
+    p {
+      margin: 0 0 5px 0;
+      font-size: 14px;
+    }
+  }
+
+  @include element(details-container) {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablets() {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  @include element(header-and-pricing-details) {
+
+    @include on-tablets() {
+      width: 45%;
+    }
+  }
+}

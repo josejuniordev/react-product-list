@@ -1,4 +1,10 @@
-export const priceSignature = {value: 0, installment: 0, byParcel: 0};
+export const priceSignature = {
+  value: 0,
+  from: 0,
+  installment: 0,
+  byParcel: 0,
+  discounts: []
+};
 
 class Product {
   constructor(

@@ -8,12 +8,13 @@ function ProductsListPage(
   {
     products,
     departments,
-    historyHandler,
+    historyHandler = () => ({}),
     history
   }
 ) {
 
   useEffect(() => {
+    console.log('historyHandler', historyHandler)
     historyHandler(history);
   }, []);
 
