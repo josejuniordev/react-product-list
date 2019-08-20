@@ -4,7 +4,7 @@ export const FETCH_DEPARTMENTS_SUCCESS = 'FETCH_DEPARTMENTS_SUCCESS';
 export const FETCH_DEPARTMENTS_FAILED = 'FETCH_DEPARTMENTS_FAILED';
 
 // INITIAL STATE
-const initialState = {
+export const initialState = {
   data: [],
   isLoading: false,
 };

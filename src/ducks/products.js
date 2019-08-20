@@ -7,7 +7,7 @@ export const FETCH_SINGLE_PRODUCT = 'FETCH_SINGLE_PRODUCT';
 export const FETCH_SINGLE_PRODUCT_SUCCESS = 'FETCH_SINGLE_PRODUCT_SUCCESS';
 export const FETCH_SINGLE_PRODUCT_FAILED = 'FETCH_SINGLE_PRODUCT_FAILED';
 // INITIAL STATE
-const initialState = {
+export const initialState = {
   data: [],
   currentInView: null,
   isLoading: false,

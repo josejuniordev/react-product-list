@@ -4,7 +4,7 @@ export const ADD_TO_CART_SUCCESS = 'ADD_TO_CART_SUCCESS';
 export const ADD_TO_CART_FAILED = 'ADD_TO_CART_FAILED';
 
 // INITIAL STATE
-const initialState = {
+export const initialState = {
   data: [],
   isLoading: false,
 };
