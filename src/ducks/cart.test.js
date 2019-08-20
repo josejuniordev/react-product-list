@@ -16,17 +16,17 @@ import FullProduct from '../classes/FullProduct';
 describe('(Ducks) cart', () => {
 
   describe('Action Creators', () => {
-    it('Should addToCart function return an action of type ADD_TO_CART', () => {
+    it('addToCart function should return an action of type ADD_TO_CART', () => {
       expect(addToCart(new Product()).type)
         .toBe(ADD_TO_CART);
     });
 
-    it('Should addToCartSuccess function return an action of type ADD_TO_CART_SUCCESS', () => {
+    it('addToCartSuccess function should return an action of type ADD_TO_CART_SUCCESS', () => {
       expect(addToCartSuccess([new Product()]).type)
         .toBe(ADD_TO_CART_SUCCESS);
     });
 
-    it('Should addToCartFailed function return an action of type ADD_TO_CART_FAILED', () => {
+    it('addToCartFailed function should return an action of type ADD_TO_CART_FAILED', () => {
       expect(addToCartFailed().type)
         .toBe(ADD_TO_CART_FAILED);
     });
