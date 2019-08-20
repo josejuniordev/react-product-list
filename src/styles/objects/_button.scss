@@ -25,9 +25,13 @@
     background: transparent;
     color: $gray-dark2;
     border: none;
+    height: auto;
+    padding: 0;
+    border-bottom: 1px solid transparent;
 
     &:hover {
-      background: $default-color;
+      background: transparent;
+      border-bottom-color: currentColor;
     }
   }
 

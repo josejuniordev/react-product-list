@@ -38,4 +38,4 @@ export default connect(
       globalLoader
     }
   }
-)(memo(GlobalLoader));
+)(GlobalLoader);

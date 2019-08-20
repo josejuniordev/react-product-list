@@ -8,6 +8,7 @@ import StarIcon from '../icons/StarIcon';
 import HeartIcon from '../icons/HeartIcon';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Link } from 'react-router-dom';
+import CustomRating from '../rating/CustomRating';
 
 const cardPrefix = `${appPrefix}product-card`;
 
@@ -16,6 +17,11 @@ function ProductCard(
     product
   }
 ) {
+
+  if (!product) {
+    return;
+  }
+
   return (
     <Fragment>
       <article className={`${cardPrefix}`}>

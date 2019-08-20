@@ -113,4 +113,4 @@ export default connect(
       departments,
     }
   }
-)(memo(Navigation));
+)(Navigation);

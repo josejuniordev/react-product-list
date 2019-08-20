@@ -25,6 +25,9 @@
   @include element(action-buttons) {
     background: $white;
     border-bottom: 1px solid $light-gray;
-    padding: 5px 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
   }
 }

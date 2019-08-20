@@ -1,64 +1,37 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect } from "react";
 import { connect } from 'react-redux';
-import Slider from 'react-slick';
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import GlobalLoader from '../components/loader/global-loader';
+import { BrowserRouter, withRouter } from 'react-router-dom';
+import ProductDetails from '../components/products/ProductDetails';
 import { fetchSingleProduct } from '../ducks/products';
-import { withRouter } from 'react-router-dom';
-
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1
-};
 
 function ProductDetailsPage(
   {
     products,
-    callFetchSingleProduct,
-    match
+    departments,
+    historyHandler = () => ({}),
+    history,
+    match,
+    callFetchSingleProduct
   }
 ) {
 
-  useEffect(()=> {
-    callFetchSingleProduct(match.params.id);
-    return () => {
-
-    }
+  useEffect(() => {
+    historyHandler(history);
+    console.log('repetindo devido ao toggle do menu')
   }, []);
+
+  const showLoader = products.isLoading;
   return (
     <Fragment>
-      <p>Detalhe do produto</p>
-      <Slider {...settings}>
-        <div><h3>1</h3></div>
-        <div><h3>2</h3></div>
-        <div><h3>3</h3></div>
-        <div><h3>4</h3></div>
-        <div><h3>5</h3></div>
-        <div><h3>6</h3></div>
-      </Slider>
+      <ProductDetails product={products.currentInView} />
+      <GlobalLoader show={showLoader} />
     </Fragment>
   )
 }
 
 export default connect(
-  ({ products }) => {
-    return {
-      products,
-    }
-  },
-  dispatch => {
-    return {
-      callFetchSingleProduct(id) {
-        dispatch(fetchSingleProduct(id))
-      }
-    }
-  }
-)(
-  withRouter(
-    ProductDetailsPage
-  )
-);
+  ({ products }) => ({
+    products
+  })
+)(ProductDetailsPage);

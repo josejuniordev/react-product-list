@@ -3,7 +3,7 @@ import './App.scss';
 import { BrowserRouter, Switch, Route, Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Suspense, lazy } from 'react';
-import { fetchProducts } from './ducks/products';
+import { fetchProducts, fetchSingleProduct } from './ducks/products';
 import { fetchDepartments } from './ducks/departments';
 import Navigation from './components/navigation/Navigation';
 import Button from './components/button/Button';
@@ -18,6 +18,7 @@ function App(
   {
     callFetchProducts,
     callFetchDepartments,
+    callFetchSingleProduct,
   }
 ) {
   const selectedLink = window.location.pathname.replace('/', '') || 'home';
@@ -34,6 +35,7 @@ function App(
   const initialize = () => {
     callFetchProducts();
     callFetchDepartments();
+    callFetchSingleProduct();
     setInitialized(true);
   };
 
@@ -46,7 +48,7 @@ function App(
   };
 
   const backButtonClickHandler = () => {
-    if (Object.keys(history).length) {
+    if (history && Object.keys(history).length) {
       history.goBack();
     }
   };
@@ -56,7 +58,7 @@ function App(
       <BrowserRouter basename="">
         <Navbar onToggleButtonClick={openNavigation} actionButtons={
           [
-            <Button onClick={backButtonClickHandler} type='link' icon={<span>&#8249;</span>} label='Voltar' highlight />
+            <Button key={1} onClick={backButtonClickHandler} type='link' icon={<span>&#8249;</span>} label='Voltar' highlight />
           ]
         } />
         <section className={`${appPrefix}content`}>
@@ -66,7 +68,7 @@ function App(
             <Switch>
               <Route exact path={ `${ process.env.PUBLIC_URL }/` }
                      component={ () => <ProductsListPage historyHandler={setHistory} appInitialized={ initialized }/> }/>
-              <Route exact path={ `${ process.env.PUBLIC_URL }/product/:id` }
+              <Route path={ `${ process.env.PUBLIC_URL }/product/:id` }
                      component={ () => <ProductDetailsPage historyHandler={setHistory} appInitialized={ initialized }/> }/>
             </Switch>
           </Suspense>
@@ -85,6 +87,9 @@ const connectedApp = connect(false,
       },
       callFetchDepartments() {
         dispatch(fetchDepartments());
+      },
+      callFetchSingleProduct(id = 1) {
+        dispatch(fetchSingleProduct(id))
       }
     }
   }

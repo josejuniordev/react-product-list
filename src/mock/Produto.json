@@ -8,11 +8,11 @@
 		"Quantidade": 209
 	},
 	"Imagens": [
-		"./images/Produto/k10_1.jpg",
-		"./images/Produto/k10_2.jpg",
-		"./images/Produto/k10_3.jpg",
-		"./images/Produto/k10_4.jpg",
-		"./images/Produto/k10_5.jpg"
+		"/images/k10_1.jpg",
+		"/images/k10_2.jpg",
+		"/images/k10_3.jpg",
+		"/images/k10_4.jpg",
+		"/images/k10_5.jpg"
 	],
 	"Preco": {
 		"De": 1899.00,
