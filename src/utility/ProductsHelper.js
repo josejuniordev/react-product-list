@@ -2,6 +2,7 @@ import { discountSignature, ratingSignature } from '../classes/FullProduct';
 import { priceSignature } from '../classes/Product';
 import { fetchSingleProductSuccess } from '../ducks/products';
 import FullProduct from '../classes/FullProduct';
+import Product from '../classes/Product';
 
 export class ProductsHelper {
   static fullProductFactory(product) {
@@ -38,5 +39,27 @@ export class ProductsHelper {
         product.Imagens,
         pricing
       );
+  }
+
+  static productFactory(product) {
+    const price = {...priceSignature};
+
+    price.value = product.Preco.Por;
+    price.installment = product.Preco.Parcelamento;
+    price.byParcel = product.Preco.PorParcela;
+
+    return new Product(
+      product.Nome,
+      product.Avaliacao,
+      product.Imagem,
+      price,
+      product.IdProduto
+    )
+  }
+
+  static multipleProductsFactory(products = []) {
+    return products.map(product => {
+      return ProductsHelper.productFactory(product);
+    })
   }
 }
