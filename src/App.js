@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.scss';
-import { BrowserRouter, Switch, Route, Link, withRouter } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Suspense, lazy } from 'react';
 import { fetchProducts, fetchSingleProduct } from './ducks/products';
@@ -21,7 +21,6 @@ function App(
     callFetchSingleProduct,
   }
 ) {
-  const selectedLink = window.location.pathname.replace('/', '') || 'home';
   const [initialized, setInitialized] = useState(false);
   const [isNavigationOpen, setIsNavigationOpenTo] = useState(false);
   const [history, setHistory] = useState({});

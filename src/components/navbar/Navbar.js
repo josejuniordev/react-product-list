@@ -1,6 +1,5 @@
-import React, { memo, Fragment, useState } from 'react';
+import React, { memo, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import Button from "../button/Button";
 import {appPrefix} from "../../constants/settings";
 import HamburgerIcon from '../icons/HamburgerIcon';

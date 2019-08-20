@@ -58,9 +58,9 @@ function ProductDetails(
         <div className={`${cardPrefix}__details-container`}>
           <div className={`${cardPrefix}__image-slider`}>
             <Slider {...settings}>
-              {product.images.map(image => {
+              {product.images.map((image, index) => {
                 return (
-                  <figure className={`${cardPrefix}__image-container`}>
+                  <figure key={index} className={`${cardPrefix}__image-container`}>
                     <img className={`${cardPrefix}__image`} src={image} alt={product.name}/>
                   </figure>
                 )
@@ -78,7 +78,7 @@ function ProductDetails(
               </h3>
             </header>
 
-            <p className={`${cardPrefix}__price-container`}>
+            <div className={`${cardPrefix}__price-container`}>
               <strong className={`${cardPrefix}__price-value`}>
                 <small className={`${cardPrefix}__price-from`}>
                   <del>{currencyFormat(product.price.from)}</del>
@@ -89,16 +89,16 @@ function ProductDetails(
                 {`${product.price.installment}x de ${`${currencyFormat(product.price.byParcel)}`}`}
                 <Button label='ver parcelamento' type='link' highlight />
               </div>
-            </p>
+            </div>
 
             <footer className={`${cardPrefix}__footer`}>
               <div className={`${cardPrefix}__discounts`}>
                 {
                   product.price.discounts
                     .filter(discount => discount.active)
-                    .map(discount => {
+                    .map((discount, index) => {
                       return (
-                        <div className={`${cardPrefix}__discount-item`}>
+                        <div key={index} className={`${cardPrefix}__discount-item`}>
                           <img src={BarcodeIcon} className={`${cardPrefix}__discount-icon`} alt=""/>
 
                           <div className={`${cardPrefix}__discount-description`}>

@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { connect } from 'react-redux';
 import GlobalLoader from '../components/loader/global-loader';
-import { BrowserRouter, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import ProductsList from '../components/products/ProductsList';
 
 function ProductsListPage(
@@ -14,7 +14,6 @@ function ProductsListPage(
 ) {
 
   useEffect(() => {
-    console.log('historyHandler', historyHandler)
     historyHandler(history);
   }, []);
 

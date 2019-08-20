@@ -1,8 +1,4 @@
-import httpRequest from './HttpRequest';
-import { fetchProductsUrl } from './Defaults';
 import {delay} from "../utility/Utils";
-import Produtos from '../mock/Produtos';
-import Produto from '../mock/Produto';
 import { appPrefix } from '../constants/settings';
 
 export class CartAPI {

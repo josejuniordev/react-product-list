@@ -8,7 +8,6 @@ import StarIcon from '../icons/StarIcon';
 import HeartIcon from '../icons/HeartIcon';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Link } from 'react-router-dom';
-import CustomRating from '../rating/CustomRating';
 
 const cardPrefix = `${appPrefix}product-card`;
 
@@ -44,7 +43,7 @@ function ProductCard(
             </Link>
           </h3>
         </header>
-        <a href='#' className={`${cardPrefix}__wish-list-icon`}>
+        <a href='' className={`${cardPrefix}__wish-list-icon`}>
           <HeartIcon/>
         </a>
         <p className={`${cardPrefix}__rating`}>
