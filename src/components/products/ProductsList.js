@@ -1,7 +1,6 @@
-import React, { Fragment, memo } from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import Product from '../../classes/Product';
-import { updateLocale } from 'moment';
 import ProductCard from './ProductCard';
 import { appPrefix } from '../../constants/settings';
 
