@@ -1,10 +1,9 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import Rating from 'react-rating';
 import Slider from 'react-slick';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Link } from 'react-router-dom';
 import { currencyFormat } from '../../utility/Utils';
 import { appPrefix } from '../../constants/settings';
 import { connect } from 'react-redux';
@@ -12,6 +11,7 @@ import HeartIcon from '../icons/HeartIcon';
 import StarIcon from '../icons/StarIcon';
 import Button from '../button/Button';
 import BarcodeIcon from '../../images/icons/barcode-icon.svg';
+import { addToCart } from '../../ducks/cart';
 
 const settings = {
   dots: true,
@@ -23,7 +23,8 @@ const settings = {
 
 function ProductDetails(
   {
-    product
+    product,
+    callAddToCart
   }
 ) {
 
@@ -32,6 +33,10 @@ function ProductDetails(
   if (!product) {
     return null;
   }
+
+  const addToCartClickHandler = () => {
+    callAddToCart(product)
+  };
 
   return (
     <Fragment>
@@ -106,7 +111,7 @@ function ProductDetails(
                     })
                 }
               </div>
-              <Button block type='primary' label='Comprar' highlight />
+              <Button onClick={addToCartClickHandler} block type='primary' label='Comprar' highlight />
             </footer>
           </div>
         </div>
@@ -115,4 +120,11 @@ function ProductDetails(
   );
 }
 
-export default ProductDetails;
+export default connect(
+  null,
+  dispatch => ({
+    callAddToCart(product) {
+      dispatch(addToCart(product))
+    }
+  })
+)(ProductDetails);
