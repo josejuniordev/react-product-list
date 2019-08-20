@@ -34,4 +34,4 @@ export default connect(
   ({ products }) => ({
     products
   })
-)(ProductDetailsPage);
+)(withRouter(ProductDetailsPage));
